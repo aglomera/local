@@ -1,0 +1,15 @@
+# requirements.txt — Nexus Sentinela
+# Instale com: pip install -r requirements.txt
+
+# ── Orquestração de Agentes ───────────────────────────────────────────────────
+langgraph>=0.2.0
+
+# ── LLM (Ollama local via lib nativa) ────────────────────────────────────────
+ollama>=0.2.0
+
+# ── Tipagem e validação ───────────────────────────────────────────────────────
+pydantic>=2.0.0
+typing-extensions>=4.9.0
+
+# ── Dependências transitivas do LangGraph (geralmente instaladas automaticamente)
+langchain-core>=0.3.0
