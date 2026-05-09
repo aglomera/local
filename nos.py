@@ -350,7 +350,9 @@ def no_auditor(estado: EstadoSentinela) -> dict:
         )
         logger.warning("Auditor sinalizou ABORTAR: %s", auditoria["motivo_falha"])
 
-    elif novo_erros >= max_erros:
+    elif max_erros > 0 and novo_erros >= max_erros:
+        # max_erros == 0 significa "desativado" — nunca aborta por contagem.
+        # Sem esse guarda, qualquer falha encerrava a missão (1 >= 0 == True).
         delta["concluido"] = True
         delta["motivo_encerramento"] = (
             f"Limite de {max_erros} erros consecutivos atingido."
